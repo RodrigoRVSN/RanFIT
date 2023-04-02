@@ -6,7 +6,6 @@ import { Routes } from "./core/routes";
 import { View } from "react-native";
 import { useFontLoad } from "./hooks/useFontLoad";
 
-
 export default function App() {
   const { fontsLoaded, onLayoutRootView } = useFontLoad()
 

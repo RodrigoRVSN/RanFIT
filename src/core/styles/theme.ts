@@ -9,5 +9,20 @@ export const theme = {
 
   fontFamily: {
     text: 'Press-Start'
+  },
+
+  spacing: {
+    xxsmall: '4px',
+    xsmall: '8px',
+    small: '12px',
+    base: '16px',
+    medium: '20px',
+    large: '24px',
+    xlarge: '28px',
+    xxlarge: '32px',
+    xxxlarge: '40px',
+    xxxxlarge: '48px',
+    giant: '64px',
+    xgiant: '80px',
   }
 };
