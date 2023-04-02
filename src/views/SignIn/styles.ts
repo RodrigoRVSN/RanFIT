@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import { Text } from 'react-native';
+import styled from "styled-components/native";
 
-export const Title = styled(Text)`
-  background: ${({ theme }) => theme.colors.background};
+export const Title = styled.Text`
+  font-family: ${({ theme }) => theme.fontFamily.text};
 `

@@ -6,4 +6,8 @@ export const theme = {
 
     text: '#000000'
   },
+
+  fontFamily: {
+    text: 'Press-Start'
+  }
 };
