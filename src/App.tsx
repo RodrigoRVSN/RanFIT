@@ -15,9 +15,8 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar style="light" />
       <View onLayout={onLayoutRootView} />
-
-      <StatusBar style="auto" />
       <Routes />
     </ThemeProvider>
   );

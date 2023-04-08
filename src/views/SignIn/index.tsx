@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import { Background } from "../../components/Background";
 
-import Streching from '../../core/assets/images/stretching.svg'
+import Logo from '../../core/assets/images/logo.svg'
 import GoogleLogo from '../../core/assets/images/google-logo.svg'
 import { useAuthRequest } from 'expo-auth-session/providers/google';
 import { makeRedirectUri } from "expo-auth-session";
@@ -48,15 +48,15 @@ export const SignIn = () => {
 
   return (
     <Background>
-      <Streching width={250} height={250} />
+      <Logo width={200} height={200} />
 
       <S.Title>Bem-vindo ao RanFIT!</S.Title>
 
       <S.Subtitle>
-        Para participar e começar a pontuar, entre na sua conta!
+        Para participar e começar a pontuar de maneira simples e divertida, entre na sua conta!
       </S.Subtitle>
 
-      <S.Button label="Usar Google" Icon={GoogleLogo} onPress={promptAsync} />
+      <S.Button label="Entrar com Google" Icon={GoogleLogo} onPress={promptAsync} />
     </Background>
   )
 }

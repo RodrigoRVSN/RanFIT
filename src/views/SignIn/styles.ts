@@ -1,23 +1,24 @@
-import styled, { css } from "styled-components/native";
+import styled from "styled-components/native";
 import { Button as CustomButton } from "../../components/Button";
 
-export const CommonStyles = css`
-  font-family: ${({ theme }) => theme.fontFamily.text};
-  margin-top:  ${({ theme }) => theme.spacing.xxlarge};
+export const Title = styled.Text`
+  color: ${({ theme }) => theme.colors.text};
+  font-family: ${({ theme }) => theme.fontFamily.title};
+  margin-top: ${({ theme }) => theme.spacing.xxlarge};
+  font-size: 32px;
   text-align: center;
 `
 
-export const Title = styled.Text`
-  ${CommonStyles}
-  font-size: 24px;
-`
-
 export const Subtitle = styled.Text`
-  ${CommonStyles}
-  font-size: 12px;
+  color: ${({ theme }) => theme.colors.gray100};
+  font-family: ${({ theme }) => theme.fontFamily.text};
+  margin-top:  ${({ theme }) => theme.spacing.xxlarge};
+  font-size: 16px;
   line-height: 26px;
+  text-align: center;
 `
 
 export const Button = styled(CustomButton)`
-  margin-top:  ${({ theme }) => theme.spacing.xxxxlarge};
+  margin-top:  ${({ theme }) => theme.spacing.giant};
+  width: 100%;
 `
