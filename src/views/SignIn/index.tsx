@@ -6,7 +6,7 @@ import GoogleLogo from '../../core/assets/images/google-logo.svg'
 import { useAuth } from "../../contexts/AuthContext";
 
 export const SignIn = () => {
-  const { onGoogleSignIn } = useAuth()
+  const { onGoogleSignIn, isLoading } = useAuth()
 
   return (
     <Background>
@@ -19,7 +19,12 @@ export const SignIn = () => {
       </S.Subtitle>
 
 
-      <S.Button label="Entrar com Google" Icon={GoogleLogo} onPress={onGoogleSignIn} />
+      <S.Button
+        label="Entrar com Google"
+        isLoading={isLoading}
+        Icon={GoogleLogo}
+        onPress={onGoogleSignIn}
+      />
     </Background>
   )
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "318941618428",
+    "project_id": "ranfit-87994",
+    "storage_bucket": "ranfit-87994.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318941618428:android:d648555beac58f1cd17779",
+        "android_client_info": {
+          "package_name": "com.ranfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "318941618428-bddkovdkik3ae5qdd3m829su7ff5bq5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-ageBiQg4Chl9iN0pjvK7I7SbCgS6SiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "318941618428-bddkovdkik3ae5qdd3m829su7ff5bq5f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

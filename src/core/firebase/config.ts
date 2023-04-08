@@ -1,18 +1,16 @@
+import { FB_DATABASE_URL, FB_API_KEY, FB_APP_ID, FB_AUTH_DOMAIN, FB_MESSAGIN_SENDER_ID, FB_PROJECT_ID, FB_STORAGE_BUCKET } from "@env";
 import { FirebaseOptions, initializeApp } from 'firebase/app';
-import { GoogleAuthProvider, getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig: FirebaseOptions = {
-  apiKey: process.env.FB_API_KEY,
-  authDomain: process.env.FB_AUTH_DOMAIN,
-  projectId: process.env.FB_PROJECT_ID,
-  storageBucket: process.env.FB_STORAGE_BUCKET,
-  messagingSenderId: process.env.FB_MESSAGIN_SENDER_ID,
-  appId: process.env.FB_APP_ID
+  apiKey: FB_API_KEY,
+  authDomain: FB_AUTH_DOMAIN,
+  projectId: FB_PROJECT_ID,
+  storageBucket: FB_STORAGE_BUCKET,
+  messagingSenderId: FB_MESSAGIN_SENDER_ID,
+  appId: FB_APP_ID,
+  databaseURL: FB_DATABASE_URL
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth()
-
-const googleProvider = new GoogleAuthProvider()
-
-export { app, auth, googleProvider }
+export const FIREBASE_APP = initializeApp(firebaseConfig)
+export const FIREBASE_DB = getFirestore(FIREBASE_APP)
