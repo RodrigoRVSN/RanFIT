@@ -5,6 +5,7 @@ import { Routes } from "./core/routes";
 
 import { View } from "react-native";
 import { useFontLoad } from "./hooks/useFontLoad";
+import { AuthProvider } from "./contexts/AuthContext";
 
 export default function App() {
   const { fontsLoaded, onLayoutRootView } = useFontLoad()
@@ -17,7 +18,10 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <StatusBar style="light" />
       <View onLayout={onLayoutRootView} />
-      <Routes />
+
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
