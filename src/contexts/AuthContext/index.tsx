@@ -4,6 +4,10 @@ import { makeRedirectUri } from "expo-auth-session";
 import { useEffect, useState } from "react";
 import { EXPO_CLIENT_ID, G_CLIENT_ID } from '@env'
 import type { AuthContextProps, AuthProviderProps, IUser } from "./AuthContext.types";
+import { getGoogleProfile } from "../../core/services/googleService";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+export const USER_KEY = '@ranfit_user'
 
 const redirectUri = makeRedirectUri({ useProxy: true });
 
@@ -22,19 +26,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const getUserInfo = async () => {
     try {
-      console.log(token)
-      const response = await fetch(
-        "https://www.googleapis.com/userinfo/v2/me",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-
-      const user = await response.json();
+      const user = await getGoogleProfile(token)
+      await AsyncStorage.setItem(USER_KEY, JSON.stringify(user))
       setUserInfo(user);
     } catch (error) {
-      console.error({ error })
-      // handle error
+      console.log({ error })
     }
   };
 
@@ -44,6 +40,21 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       getUserInfo();
     }
   }, [response, token]);
+
+  const getStorageUser = async () => {
+    try {
+      const user = await AsyncStorage.getItem(USER_KEY)
+      user && setUserInfo(JSON.parse(user));
+    } catch (error) {
+      console.log({ error })
+    }
+  }
+
+  useEffect(() => {
+    if (!userInfo) {
+      getStorageUser()
+    }
+  }, [])
 
   return (
     <AuthContext.Provider value={{ userInfo, onGoogleSignIn }}>
