@@ -2,13 +2,15 @@ import { useCallback } from 'react';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
-SplashScreen.preventAutoHideAsync();
+import { Inter_400Regular } from '@expo-google-fonts/inter';
+import { SpaceGrotesk_700Bold } from '@expo-google-fonts/space-grotesk';
 
-const assetsPath = '../../../assets/fonts'
+SplashScreen.preventAutoHideAsync();
 
 export const useFontLoad = () => {
   const [fontsLoaded] = useFonts({
-    'Press-Start': require(`${assetsPath}/PressStart2P-Regular.ttf`),
+    Inter_400Regular,
+    SpaceGrotesk_700Bold
   });
 
   const onLayoutRootView = useCallback(async () => {

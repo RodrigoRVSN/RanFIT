@@ -1,14 +1,17 @@
 export const theme = {
   colors: {
-    background: '#EDF6F9',
-    primaryDark: '#93C572',
-    primaryLight: '#BCE08A',
+    background: '#1F2421',
+    primary: '#216869',
+    secondary: '#49A078',
 
-    text: '#000000'
+    text: '#FFFFFF',
+    gray100: '#B3B0B8',
+    gray200: '#7C7A80',
   },
 
   fontFamily: {
-    text: 'Press-Start'
+    text: 'Inter_400Regular',
+    title: 'SpaceGrotesk_700Bold'
   },
 
   spacing: {
