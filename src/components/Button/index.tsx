@@ -6,7 +6,7 @@ import { ActivityIndicator } from "react-native"
 
 interface ButtonProps {
   label: string
-  isLoading: boolean
+  isLoading?: boolean
   Icon?: FC<SvgProps>
   onPress: () => void
 }
@@ -22,7 +22,8 @@ export const Button = ({ label, isLoading, Icon, onPress, ...rest }: ButtonProps
               {Icon && <Icon width={32} height={32} />}
               <S.Label>{label}</S.Label>
             </>
-          )}
+          )
+        }
       </S.Button>
     </S.ButtonContainer>
   )
