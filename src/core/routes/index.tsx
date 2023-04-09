@@ -1,5 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native"
-import { useAuth } from "../../contexts/AuthContext"
+import { useAuth } from "~/contexts/AuthContext"
 import { AuthRoutes } from "./AuthRoutes"
 import { AppRoutes } from "./AppRoutes"
 

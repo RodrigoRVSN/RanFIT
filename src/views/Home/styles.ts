@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Button as CustomButton } from "../../components/Button";
+import { Button as CustomButton } from "~/components/Button";
 
 export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.text};

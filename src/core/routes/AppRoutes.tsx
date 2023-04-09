@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home } from "../../views/Home";
-import { theme } from "../styles/theme";
+import { Home } from "~/views/Home";
+import { theme } from "~/core/styles/theme";
 import { Platform, View } from "react-native";
 import { Feather, MaterialIcons } from '@expo/vector-icons';
-import { Profile } from "../../views/Profile";
-import { Ranking } from "../../views/Ranking";
+import { Profile } from "~/views/Profile";
+import { Ranking } from "~/views/Ranking";
 
 const Tab = createBottomTabNavigator();
 

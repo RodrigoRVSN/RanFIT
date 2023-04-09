@@ -1,8 +1,8 @@
 import * as S from "./styles";
-import { Background } from "../../components/Background";
+import { Background } from "~/components/Background";
 
-import ScanQrCode from '../../core/assets/images/scan-qr-code.svg'
-import QrCode from '../../core/assets/icons/qr-code.svg'
+import ScanQrCode from '~/core/assets/images/scan-qr-code.svg'
+import QrCode from '~/core/assets/icons/qr-code.svg'
 
 export const Home = () => {
   return (

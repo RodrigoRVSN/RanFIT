@@ -1,4 +1,4 @@
-import { IUser } from "../../contexts/AuthContext/AuthContext.types";
+import { IUser } from "~/contexts/AuthContext/AuthContext.types";
 
 export const getGoogleProfile = async (token: string): Promise<IUser> => {
   const response = await fetch(

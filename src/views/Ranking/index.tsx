@@ -1,5 +1,5 @@
 import * as S from "./styles";
-import { Background } from "../../components/Background";
+import { Background } from "~/components/Background";
 
 export const Ranking = () => {
   // TODO: implement Ranking Screen

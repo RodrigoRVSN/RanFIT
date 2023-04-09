@@ -1,5 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import { SignIn } from "../../views/SignIn";
+import { SignIn } from "~/views/SignIn";
 
 const Stack = createStackNavigator();
 

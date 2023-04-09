@@ -4,9 +4,9 @@ import { makeRedirectUri } from "expo-auth-session";
 import { useEffect, useState } from "react";
 import { EXPO_CLIENT_ID, G_CLIENT_ID } from '@env'
 import type { AuthContextProps, AuthProviderProps, IUser } from "./AuthContext.types";
-import { getGoogleProfile } from "../../core/services/googleService";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { FIREBASE_DB } from "../../core/firebase/config";
+import { FIREBASE_DB } from "~/core/firebase/config";
+import { getGoogleProfile } from "~/core/services/googleService";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
 
 export const USER_KEY = '@ranfit_user'
