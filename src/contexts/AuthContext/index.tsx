@@ -19,6 +19,7 @@ export const AuthContext = createContext<AuthContextProps>(
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isLoading, setIsLoading] = useState(false)
+  const [isLoadingStorage, setIsLoadingStorage] = useState(false)
   const [token, setToken] = useState('')
   const [userData, setUserData] = useState<IUser>()
 
@@ -58,12 +59,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const getUserFromStorage = async () => {
     try {
+      setIsLoadingStorage(true)
       const user = await AsyncStorage.getItem(USER_KEY)
       const parsedUser: IUser = JSON.parse(user)
       const userInDatabase = await getUserById(parsedUser.id)
       user && setUserData(userInDatabase.data() as IUser)
     } catch (error) {
       console.log({ error })
+    } finally {
+      setIsLoadingStorage(false)
     }
   }
 
@@ -75,7 +79,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoading, userData, onGoogleSignIn, onSignOut }}
+      value={{
+        isLoading,
+        isLoadingStorage,
+        userData,
+        onGoogleSignIn,
+        onSignOut
+      }}
     >
       {children}
     </AuthContext.Provider>

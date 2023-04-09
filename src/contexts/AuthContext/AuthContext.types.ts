@@ -13,6 +13,7 @@ export type AuthContextProps = {
   userData: IUser
   onGoogleSignIn: () => void
   isLoading: boolean
+  isLoadingStorage: boolean
   onSignOut: () => void
 }
 
