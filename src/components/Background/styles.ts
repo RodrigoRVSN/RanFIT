@@ -5,5 +5,5 @@ export const Background = styled.SafeAreaView`
   background: ${({ theme }) => theme.colors.background};
   flex: 1;
   padding: ${({ theme }) => theme.spacing.xxxxlarge}
-    ${({ theme }) => theme.spacing.xxlarge} 0;
+    ${({ theme }) => theme.spacing.xlarge} 0;
 `
