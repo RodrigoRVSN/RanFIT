@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react'
 import { useAuthRequest } from 'expo-auth-session/providers/google'
-import { makeRedirectUri } from 'expo-auth-session'
 import { useEffect, useState } from 'react'
 import { EXPO_CLIENT_ID, G_CLIENT_ID } from '@env'
 import type {
@@ -10,7 +9,7 @@ import type {
 } from './AuthContext.types'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { getGoogleProfile } from '~/core/services/googleService'
-import { createUserIfNotExists } from './AuthContext.helpers'
+import { createUserIfNotExists, getUserById } from './AuthContext.helpers'
 
 export const USER_KEY = '@ranfit_user'
 
@@ -39,10 +38,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setIsLoading(true)
       const user = await getGoogleProfile(token)
 
-      await AsyncStorage.setItem(USER_KEY, JSON.stringify(user))
-      await createUserIfNotExists(user)
+      const userInfo = await createUserIfNotExists(user)
 
-      setUserData(user)
+      await AsyncStorage.setItem(USER_KEY, JSON.stringify(userInfo))
+      setUserData(userInfo)
     } catch (error) {
       console.log({ error })
     } finally {
@@ -60,7 +59,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const getUserFromStorage = async () => {
     try {
       const user = await AsyncStorage.getItem(USER_KEY)
-      user && setUserData(JSON.parse(user))
+      const parsedUser: IUser = JSON.parse(user)
+      const userInDatabase = await getUserById(parsedUser.id)
+      user && setUserData(userInDatabase.data() as IUser)
     } catch (error) {
       console.log({ error })
     }

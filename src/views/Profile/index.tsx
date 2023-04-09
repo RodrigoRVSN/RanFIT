@@ -14,14 +14,15 @@ export const Profile = () => {
 
       <S.ImageProfile>
         <Avatar size={140} imageUrl={userData.picture} isHighlighted />
-        <S.Level>lvl. 7</S.Level>
+        <S.Level>lvl. {userData.level}</S.Level>
       </S.ImageProfile>
 
       <S.Title>{userData.name}</S.Title>
 
       <S.CardsContainer>
-        <DataCard title={0} description="mV gerados" />
-        <DataCard title={0} description="minutos" />
+        <DataCard title={userData.energy} description="mV gerados" />
+        <DataCard title={userData.time} description="minutos" />
+        {/* TODO: refine ranking */}
         <DataCard title="#1" description="no ranking" />
       </S.CardsContainer>
     </Background>
