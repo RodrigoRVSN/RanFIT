@@ -1,10 +1,26 @@
 {
+  "name": "animou",
+  "displayName": "animou",
   "expo": {
     "name": "ranfit",
     "slug": "ranfit",
+    "scheme": "ranfit",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "splash": {
+      "image": "./assets/splash-screen.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000814"
+    },
+    "ios": {
+      "bundleIdentifier": "com.ranfti",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.ranfti"
+    },
+    "githubUrl": "https://github.com/RodrigoRVSN/RanFIT"
   }
 }

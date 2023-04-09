@@ -10,9 +10,10 @@ export type IUser = {
 }
 
 export type AuthContextProps = {
-  userInfo: IUser
+  userData: IUser
   onGoogleSignIn: () => void
   isLoading: boolean
+  onSignOut: () => void
 }
 
 export type AuthProviderProps = {

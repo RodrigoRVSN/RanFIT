@@ -9,13 +9,10 @@ import type {
   IUser
 } from './AuthContext.types'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { FIREBASE_DB } from '~/core/firebase/config'
 import { getGoogleProfile } from '~/core/services/googleService'
-import { doc, getDoc, setDoc } from '@firebase/firestore'
+import { createUserIfNotExists } from './AuthContext.helpers'
 
 export const USER_KEY = '@ranfit_user'
-
-const redirectUri = makeRedirectUri({ useProxy: true })
 
 export const AuthContext = createContext<AuthContextProps>(
   {} as AuthContextProps
@@ -24,41 +21,28 @@ export const AuthContext = createContext<AuthContextProps>(
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isLoading, setIsLoading] = useState(false)
   const [token, setToken] = useState('')
-  const [userInfo, setUserInfo] = useState<IUser>()
+  const [userData, setUserData] = useState<IUser>()
 
   const [, response, onGoogleSignIn] = useAuthRequest({
     expoClientId: EXPO_CLIENT_ID,
     clientId: G_CLIENT_ID,
-    scopes: ['openid', 'profile', 'email'],
-    redirectUri
+    scopes: ['openid', 'profile', 'email']
   })
 
-  const createUserIfNotExists = async (user: IUser) => {
-    const userData: IUser = {
-      id: user.id,
-      name: user.name,
-      picture: user.picture,
-      energy: 0,
-      level: 0,
-      time: 0
-    }
-
-    const userAlreadyExists = (
-      await getDoc(doc(FIREBASE_DB, 'users', user.id))
-    ).exists()
-    !userAlreadyExists &&
-      (await setDoc(doc(FIREBASE_DB, 'users', user.id), userData))
+  const onSignOut = async () => {
+    await AsyncStorage.removeItem(USER_KEY)
+    setUserData(null)
   }
 
   const getUserInfo = async () => {
     try {
       setIsLoading(true)
       const user = await getGoogleProfile(token)
-      await AsyncStorage.setItem(USER_KEY, JSON.stringify(user))
 
+      await AsyncStorage.setItem(USER_KEY, JSON.stringify(user))
       await createUserIfNotExists(user)
 
-      setUserInfo(user)
+      setUserData(user)
     } catch (error) {
       console.log({ error })
     } finally {
@@ -73,23 +57,25 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   }, [response, token])
 
-  const getStorageUser = async () => {
+  const getUserFromStorage = async () => {
     try {
       const user = await AsyncStorage.getItem(USER_KEY)
-      user && setUserInfo(JSON.parse(user))
+      user && setUserData(JSON.parse(user))
     } catch (error) {
       console.log({ error })
     }
   }
 
   useEffect(() => {
-    if (!userInfo) {
-      getStorageUser()
+    if (!userData) {
+      getUserFromStorage()
     }
   }, [])
 
   return (
-    <AuthContext.Provider value={{ isLoading, userInfo, onGoogleSignIn }}>
+    <AuthContext.Provider
+      value={{ isLoading, userData, onGoogleSignIn, onSignOut }}
+    >
       {children}
     </AuthContext.Provider>
   )

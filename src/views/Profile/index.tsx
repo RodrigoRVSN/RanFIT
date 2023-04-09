@@ -3,18 +3,21 @@ import { Background } from '~/components/Background'
 import { useAuth } from '~/contexts/AuthContext'
 import { Avatar } from '~/components/Avatar'
 import { DataCard } from './DataCard'
+import { SignOutButton } from './SignOutButton'
 
 export const Profile = () => {
-  const { userInfo } = useAuth()
+  const { userData } = useAuth()
 
   return (
     <Background>
+      <SignOutButton />
+
       <S.ImageProfile>
-        <Avatar size={140} imageUrl={userInfo.picture} isHighlighted />
+        <Avatar size={140} imageUrl={userData.picture} isHighlighted />
         <S.Level>lvl. 7</S.Level>
       </S.ImageProfile>
 
-      <S.Title>{userInfo.name}</S.Title>
+      <S.Title>{userData.name}</S.Title>
 
       <S.CardsContainer>
         <DataCard title={0} description="mV gerados" />

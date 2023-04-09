@@ -4,11 +4,11 @@ import { AuthRoutes } from './AuthRoutes'
 import { AppRoutes } from './AppRoutes'
 
 export const Routes = () => {
-  const { userInfo } = useAuth()
+  const { userData } = useAuth()
 
   return (
     <NavigationContainer>
-      {userInfo ? <AppRoutes /> : <AuthRoutes />}
+      {userData ? <AppRoutes /> : <AuthRoutes />}
     </NavigationContainer>
   )
 }
