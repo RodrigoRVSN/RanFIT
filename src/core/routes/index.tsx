@@ -2,13 +2,16 @@ import { NavigationContainer } from '@react-navigation/native'
 import { useAuth } from '~/contexts/AuthContext'
 import { AuthRoutes } from './AuthRoutes'
 import { AppRoutes } from './AppRoutes'
+import { LoadingScreen } from '~/components/LoadingScreen'
 
 export const Routes = () => {
-  const { userInfo } = useAuth()
+  const { userData, isLoadingStorage } = useAuth()
+
+  if (isLoadingStorage) return <LoadingScreen />
 
   return (
     <NavigationContainer>
-      {userInfo ? <AppRoutes /> : <AuthRoutes />}
+      {userData ? <AppRoutes /> : <AuthRoutes />}
     </NavigationContainer>
   )
 }

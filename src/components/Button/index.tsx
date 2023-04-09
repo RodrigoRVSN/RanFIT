@@ -20,7 +20,7 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <S.ButtonContainer {...rest}>
-      <S.Button onPress={onPress}>
+      <S.Button onPress={() => onPress()} disabled={isLoading}>
         {isLoading ? (
           <ActivityIndicator size={32} />
         ) : (
