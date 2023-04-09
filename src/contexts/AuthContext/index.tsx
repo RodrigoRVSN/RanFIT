@@ -58,12 +58,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const getUserFromStorage = async () => {
     try {
+      setIsLoading(true)
       const user = await AsyncStorage.getItem(USER_KEY)
       const parsedUser: IUser = JSON.parse(user)
       const userInDatabase = await getUserById(parsedUser.id)
       user && setUserData(userInDatabase.data() as IUser)
     } catch (error) {
       console.log({ error })
+    } finally {
+      setIsLoading(false)
     }
   }
 
