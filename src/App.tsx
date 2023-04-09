@@ -1,17 +1,17 @@
-import { ThemeProvider } from "styled-components";
-import { StatusBar } from 'expo-status-bar';
-import { Routes } from "~/core/routes";
-import { theme } from "~/core/styles/theme";
+import { ThemeProvider } from 'styled-components'
+import { StatusBar } from 'expo-status-bar'
+import { Routes } from '~/core/routes'
+import { theme } from '~/core/styles/theme'
 
-import { View } from "react-native";
-import { useFontLoad } from "~/hooks/useFontLoad";
-import { AuthProvider } from "~/contexts/AuthContext";
+import { View } from 'react-native'
+import { useFontLoad } from '~/hooks/useFontLoad'
+import { AuthProvider } from '~/contexts/AuthContext'
 
 export default function App() {
   const { fontsLoaded, onLayoutRootView } = useFontLoad()
 
   if (!fontsLoaded) {
-    return null;
+    return null
   }
 
   return (
@@ -23,5 +23,5 @@ export default function App() {
         <Routes />
       </AuthProvider>
     </ThemeProvider>
-  );
+  )
 }

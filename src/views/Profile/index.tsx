@@ -1,7 +1,7 @@
-import * as S from "./styles";
-import { Background } from "~/components/Background";
-import { useAuth } from "~/contexts/AuthContext";
-import { Image } from "react-native";
+import * as S from './styles'
+import { Background } from '~/components/Background'
+import { useAuth } from '~/contexts/AuthContext'
+import { Image } from 'react-native'
 
 export const Profile = () => {
   const { userInfo } = useAuth()

@@ -1,5 +1,5 @@
-import { TouchableOpacity } from "react-native";
-import styled from "styled-components/native";
+import { TouchableOpacity } from 'react-native'
+import styled from 'styled-components/native'
 
 export const ButtonContainer = styled.View`
   align-items: center;
@@ -12,7 +12,7 @@ export const Button = styled(TouchableOpacity)`
   display: flex;
   flex-direction: row;
   gap: ${({ theme }) => theme.spacing.xsmall};
-  padding: ${({ theme }) => theme.spacing.base} ${({ theme }) => theme.spacing.xxlarge};
+  padding: ${({ theme }) => `${theme.spacing.base} ${theme.spacing.xxlarge}`};
   width: 100%;
   justify-content: center;
 `

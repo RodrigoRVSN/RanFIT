@@ -1,12 +1,12 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home } from "~/views/Home";
-import { theme } from "~/core/styles/theme";
-import { Platform, View } from "react-native";
-import { Feather, MaterialIcons } from '@expo/vector-icons';
-import { Profile } from "~/views/Profile";
-import { Ranking } from "~/views/Ranking";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Home } from '~/views/Home'
+import { theme } from '~/core/styles/theme'
+import { Platform, View } from 'react-native'
+import { Feather, MaterialIcons } from '@expo/vector-icons'
+import { Profile } from '~/views/Profile'
+import { Ranking } from '~/views/Ranking'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
 export const AppRoutes = () => {
   return (
@@ -22,33 +22,38 @@ export const AppRoutes = () => {
             paddingVertical: Platform.OS === 'ios' ? 20 : 0,
             backgroundColor: theme.colors.background,
             height: 64
-          },
+          }
         }}
       >
         <Tab.Screen
-          name='Home'
+          name="Home"
           component={Home}
           options={{
-            tabBarIcon: ({ color }) => <Feather name='home' size={32} color={color} />
+            tabBarIcon: ({ color }) => (
+              <Feather name="home" size={32} color={color} />
+            )
           }}
         />
 
         <Tab.Screen
-          name='Profile'
+          name="Profile"
           component={Profile}
           options={{
-            tabBarIcon: ({ color }) => <Feather name='user' size={32} color={color} />
+            tabBarIcon: ({ color }) => (
+              <Feather name="user" size={32} color={color} />
+            )
           }}
         />
 
         <Tab.Screen
-          name='Ranking'
+          name="Ranking"
           component={Ranking}
           options={{
-            tabBarIcon: ({ color }) => <MaterialIcons name='leaderboard' size={32} color={color} />
+            tabBarIcon: ({ color }) => (
+              <MaterialIcons name="leaderboard" size={32} color={color} />
+            )
           }}
         />
-
       </Tab.Navigator>
 
       <View

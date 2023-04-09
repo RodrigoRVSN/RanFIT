@@ -6,7 +6,7 @@ export const theme = {
 
     text: '#FFFFFF',
     gray100: '#B3B0B8',
-    gray200: '#7C7A80',
+    gray200: '#7C7A80'
   },
 
   fontFamily: {
@@ -26,6 +26,6 @@ export const theme = {
     xxxlarge: '40px',
     xxxxlarge: '48px',
     giant: '64px',
-    xgiant: '80px',
+    xgiant: '80px'
   }
-};
+}

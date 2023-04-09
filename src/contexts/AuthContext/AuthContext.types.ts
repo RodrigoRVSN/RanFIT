@@ -1,12 +1,12 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
 export type IUser = {
   id: string
   name: string
   picture: string
-  energy: number,
-  time: number,
-  level: number,
+  energy: number
+  time: number
+  level: number
 }
 
 export type AuthContextProps = {
