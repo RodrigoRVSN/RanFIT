@@ -15,7 +15,7 @@ export const Level = styled.Text`
   position: absolute;
 `
 
-export const Title = styled.Text`
+export const Username = styled.Text`
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fontFamily.title};
   margin: ${({ theme }) => theme.spacing.medium} 0;

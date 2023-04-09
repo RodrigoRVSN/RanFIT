@@ -15,12 +15,18 @@
       "backgroundColor": "#000814"
     },
     "ios": {
-      "bundleIdentifier": "com.ranfti",
+      "bundleIdentifier": "com.ranfit",
       "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.ranfti"
+      "package": "com.ranfit"
     },
-    "githubUrl": "https://github.com/RodrigoRVSN/RanFIT"
+    "icon": "./assets/icon.png",
+    "githubUrl": "https://github.com/RodrigoRVSN/RanFIT",
+    "extra": {
+      "eas": {
+        "projectId": "d8d76ff1-fa58-41d1-a4fd-fd26f1b819b6"
+      }
+    }
   }
 }
