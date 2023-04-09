@@ -17,7 +17,7 @@ export const Profile = () => {
         <S.Level>lvl. {userData.level}</S.Level>
       </S.ImageProfile>
 
-      <S.Title>{userData.name}</S.Title>
+      <S.Username>{userData.name}</S.Username>
 
       <S.CardsContainer>
         <DataCard title={userData.energy} description="mV gerados" />
