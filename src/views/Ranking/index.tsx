@@ -2,17 +2,22 @@ import { Avatar } from '~/components/Avatar'
 import { rankingUsersMock } from './Ranking.mock'
 import * as S from './styles'
 import { Background } from '~/components/Background'
+import { RankingCard } from './RankingCard'
+import { FlatList } from 'react-native'
+import { HighlightedUser } from './HighlightedUser'
 
 export const Ranking = () => {
-  const highlightedUser = rankingUsersMock[0]
-
   return (
     <Background>
       <S.Title>Ranking</S.Title>
 
-      <Avatar size={134} isHighlighted imageUrl={highlightedUser.avatar} />
-      <S.Username>{highlightedUser.name}</S.Username>
-      <S.Points>{highlightedUser.energy} mV gerados</S.Points>
+      <FlatList
+        ListHeaderComponent={<HighlightedUser user={rankingUsersMock[0]} />}
+        data={rankingUsersMock}
+        renderItem={({ item, index }) =>
+          index > 0 && <RankingCard user={item} position={index + 1} />
+        }
+      />
     </Background>
   )
 }
