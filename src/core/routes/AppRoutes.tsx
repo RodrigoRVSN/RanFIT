@@ -3,6 +3,8 @@ import { Home } from "../../views/Home";
 import { theme } from "../styles/theme";
 import { Platform, View } from "react-native";
 import { Feather, MaterialIcons } from '@expo/vector-icons';
+import { Profile } from "../../views/Profile";
+import { Ranking } from "../../views/Ranking";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,8 +34,8 @@ export const AppRoutes = () => {
         />
 
         <Tab.Screen
-          name='User'
-          component={Home}
+          name='Profile'
+          component={Profile}
           options={{
             tabBarIcon: ({ color }) => <Feather name='user' size={32} color={color} />
           }}
@@ -41,7 +43,7 @@ export const AppRoutes = () => {
 
         <Tab.Screen
           name='Ranking'
-          component={Home}
+          component={Ranking}
           options={{
             tabBarIcon: ({ color }) => <MaterialIcons name='leaderboard' size={32} color={color} />
           }}
