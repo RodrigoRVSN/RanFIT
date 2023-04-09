@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 import * as S from './styles'
 
 type BackgroundProps = {
@@ -6,9 +6,5 @@ type BackgroundProps = {
 }
 
 export const Background = ({ children }: BackgroundProps) => {
-  return (
-    <S.Background>
-      {children}
-    </S.Background>
-  )
+  return <S.Background>{children}</S.Background>
 }

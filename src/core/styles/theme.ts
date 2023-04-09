@@ -1,12 +1,12 @@
 export const theme = {
   colors: {
-    background: '#1F2421',
+    background: '#000814',
     primary: '#216869',
     secondary: '#49A078',
 
     text: '#FFFFFF',
     gray100: '#B3B0B8',
-    gray200: '#7C7A80',
+    gray200: '#7C7A80'
   },
 
   fontFamily: {
@@ -26,6 +26,6 @@ export const theme = {
     xxxlarge: '40px',
     xxxxlarge: '48px',
     giant: '64px',
-    xgiant: '80px',
+    xgiant: '80px'
   }
-};
+}

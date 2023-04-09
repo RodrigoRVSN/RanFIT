@@ -1,12 +1,12 @@
-import { createStackNavigator } from '@react-navigation/stack';
-import { SignIn } from "../../views/SignIn";
+import { createStackNavigator } from '@react-navigation/stack'
+import { SignIn } from '~/views/SignIn'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 export const AuthRoutes = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name='SignIn' component={SignIn} />
+      <Stack.Screen name="SignIn" component={SignIn} />
     </Stack.Navigator>
   )
 }

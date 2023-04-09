@@ -1,5 +1,13 @@
-import { FB_DATABASE_URL, FB_API_KEY, FB_APP_ID, FB_AUTH_DOMAIN, FB_MESSAGIN_SENDER_ID, FB_PROJECT_ID, FB_STORAGE_BUCKET } from "@env";
-import { FirebaseOptions, initializeApp } from 'firebase/app';
+import {
+  FB_DATABASE_URL,
+  FB_API_KEY,
+  FB_APP_ID,
+  FB_AUTH_DOMAIN,
+  FB_MESSAGIN_SENDER_ID,
+  FB_PROJECT_ID,
+  FB_STORAGE_BUCKET
+} from '@env'
+import { FirebaseOptions, initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig: FirebaseOptions = {
@@ -10,7 +18,7 @@ const firebaseConfig: FirebaseOptions = {
   messagingSenderId: FB_MESSAGIN_SENDER_ID,
   appId: FB_APP_ID,
   databaseURL: FB_DATABASE_URL
-};
+}
 
 export const FIREBASE_APP = initializeApp(firebaseConfig)
 export const FIREBASE_DB = getFirestore(FIREBASE_APP)
