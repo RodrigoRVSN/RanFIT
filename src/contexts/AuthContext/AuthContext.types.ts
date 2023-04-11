@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 export type IUser = {
   id: string
   name: string
-  picture: string
+  avatarUrl: string
   energy: number
   time: number
   level: number

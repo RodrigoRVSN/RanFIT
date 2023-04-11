@@ -13,7 +13,7 @@ export const Profile = () => {
       <SignOutButton />
 
       <S.ImageProfile>
-        <Avatar size={140} imageUrl={userData.picture} isHighlighted />
+        <Avatar size={140} imageUrl={userData.avatarUrl} isHighlighted />
         <S.Level>lvl. {userData.level}</S.Level>
       </S.ImageProfile>
 

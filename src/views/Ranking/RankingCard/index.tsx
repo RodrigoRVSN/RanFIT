@@ -11,7 +11,7 @@ export const RankingCard = ({ user, position }: RankingCardProps) => {
   return (
     <S.Container>
       <S.ImageContainer>
-        <Avatar size={64} imageUrl={user.picture} />
+        <Avatar size={64} imageUrl={user.avatarUrl} />
         <S.Position position={position}>{position}</S.Position>
       </S.ImageContainer>
 

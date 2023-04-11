@@ -10,7 +10,7 @@ type HighlightedUserProps = {
 export const HighlightedUser = ({ user }: HighlightedUserProps) => {
   return (
     <S.Container>
-      <Avatar size={134} isHighlighted imageUrl={user.picture} />
+      <Avatar size={134} isHighlighted imageUrl={user.avatarUrl} />
       <S.Username>{user.name}</S.Username>
       <S.Points>{user.energy} mV gerados</S.Points>
     </S.Container>
