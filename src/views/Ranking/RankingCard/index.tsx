@@ -1,9 +1,9 @@
 import { Avatar } from '~/components/Avatar'
-import { rankingUsersMock } from '../Ranking.mock'
 import * as S from './styles'
+import { IUser } from '~/contexts/AuthContext/AuthContext.types'
 
 type RankingCardProps = {
-  user: (typeof rankingUsersMock)[0]
+  user: IUser
   position: number
 }
 
