@@ -1,9 +1,9 @@
 import { Avatar } from '~/components/Avatar'
-import { rankingUsersMock } from '../Ranking.mock'
 import * as S from './styles'
+import { IUser } from '~/contexts/AuthContext/AuthContext.types'
 
 type RankingCardProps = {
-  user: (typeof rankingUsersMock)[0]
+  user: IUser
   position: number
 }
 
@@ -11,7 +11,7 @@ export const RankingCard = ({ user, position }: RankingCardProps) => {
   return (
     <S.Container>
       <S.ImageContainer>
-        <Avatar size={64} imageUrl={user.picture} />
+        <Avatar size={64} imageUrl={user.avatarUrl} />
         <S.Position position={position}>{position}</S.Position>
       </S.ImageContainer>
 
