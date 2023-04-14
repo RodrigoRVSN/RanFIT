@@ -14,7 +14,7 @@ export const useRanking = (userId?: string) => {
 
   const handleGetRanking = useCallback(async () => {
     const usersRef = collection(FIREBASE_DB, 'users')
-    const queryPoints = query(usersRef, orderBy('energy', 'desc'))
+    const queryPoints = query(usersRef, orderBy('points', 'desc'))
     const users = await getDocs(queryPoints)
 
     setUsersRanking(users.docs.map((doc) => doc.data() as IUser))

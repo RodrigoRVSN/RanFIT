@@ -12,7 +12,7 @@ export const HighlightedUser = ({ user }: HighlightedUserProps) => {
     <S.Container>
       <Avatar size={134} isHighlighted imageUrl={user.avatarUrl} />
       <S.Username>{user.name}</S.Username>
-      <S.Points>{user.energy} mV gerados</S.Points>
+      <S.Points>{user.points} pontos</S.Points>
     </S.Container>
   )
 }

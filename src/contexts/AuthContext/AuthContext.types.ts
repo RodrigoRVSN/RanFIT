@@ -4,7 +4,7 @@ export type IUser = {
   id: string
   name: string
   avatarUrl: string
-  energy: number
+  points: number
   time: number
   level: number
 }

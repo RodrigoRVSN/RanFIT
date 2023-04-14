@@ -14,7 +14,7 @@ export const createUserIfNotExists = async (
     id: user.id,
     name: user.name,
     avatarUrl: user.picture,
-    energy: 0,
+    points: 0,
     level: 0,
     time: 0
   }

@@ -22,7 +22,7 @@ export const Profile = () => {
       <S.Username>{userData.name}</S.Username>
 
       <S.CardsContainer>
-        <DataCard title={userData.energy} description="mV gerados" />
+        <DataCard title={userData.points} description="pontos" />
         <DataCard title={userData.time} description="minutos" />
         <DataCard title={`#${userRankingPosition}`} description="no ranking" />
       </S.CardsContainer>
