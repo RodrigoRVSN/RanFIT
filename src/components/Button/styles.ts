@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 export const ButtonContainer = styled.View`
   align-items: center;
   background: ${({ theme }) => theme.colors.primary};
-  border-radius: ${({ theme }) => theme.spacing.base};
+  border-radius: ${({ theme }) => theme.spacing.xsmall};
 `
 
 export const Button = styled(TouchableOpacity)`
