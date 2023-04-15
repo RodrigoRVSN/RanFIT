@@ -7,6 +7,8 @@ export type IUser = {
   points: number
   time: number
   level: number
+  currentExperience: number
+  experienceToLevelUp: number
 }
 
 export type AuthContextProps = {

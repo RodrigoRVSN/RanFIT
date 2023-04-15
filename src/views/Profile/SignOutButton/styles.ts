@@ -4,4 +4,5 @@ export const Button = styled.TouchableOpacity`
   position: absolute;
   right: ${({ theme }) => theme.spacing.xxlarge};
   top: ${({ theme }) => theme.spacing.giant};
+  z-index: 1;
 `

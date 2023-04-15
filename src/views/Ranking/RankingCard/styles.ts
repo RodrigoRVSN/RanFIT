@@ -52,6 +52,7 @@ export const Details = styled.Text`
   font-family: ${({ theme }) => theme.fontFamily.text};
   font-size: 14px;
   line-height: 20px;
+  text-align: right;
 `
 
 export const DetailsContainer = styled.View`

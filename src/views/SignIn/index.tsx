@@ -1,7 +1,6 @@
 import * as S from './styles'
 import { Background } from '~/components/Background'
 
-import Logo from '~/core/assets/images/logo.svg'
 import GoogleLogo from '~/core/assets/icons/google-logo.svg'
 import { useAuth } from '~/contexts/AuthContext'
 
@@ -10,7 +9,7 @@ export const SignIn = () => {
 
   return (
     <Background>
-      <Logo width={200} height={200} />
+      <S.Logo width={200} height={200} />
 
       <S.Title>Bem-vindo ao RanFIT!</S.Title>
 

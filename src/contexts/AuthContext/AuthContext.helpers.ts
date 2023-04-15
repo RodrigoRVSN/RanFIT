@@ -16,7 +16,9 @@ export const createUserIfNotExists = async (
     avatarUrl: user.picture,
     points: 0,
     level: 0,
-    time: 0
+    time: 0,
+    currentExperience: 0,
+    experienceToLevelUp: 1000
   }
 
   const userInDatabase = await getUserById(user.id)

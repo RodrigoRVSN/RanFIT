@@ -5,6 +5,7 @@ import { Avatar } from '~/components/Avatar'
 import { DataCard } from './DataCard'
 import { SignOutButton } from './SignOutButton'
 import { useRanking } from '~/hooks/useRanking'
+import { LevelProgress } from './LevelProgress'
 
 export const Profile = () => {
   const { userData } = useAuth()
@@ -20,6 +21,8 @@ export const Profile = () => {
       </S.ImageProfile>
 
       <S.Username>{userData.name}</S.Username>
+
+      <LevelProgress />
 
       <S.CardsContainer>
         <DataCard title={userData.points} description="pontos" />

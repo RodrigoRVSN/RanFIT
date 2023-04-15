@@ -1,5 +1,10 @@
 import styled from 'styled-components/native'
 import { Button as CustomButton } from '~/components/Button'
+import AppLogo from '~/core/assets/images/logo.svg'
+
+export const Logo = styled(AppLogo)`
+  align-self: center;
+`
 
 export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.text};
