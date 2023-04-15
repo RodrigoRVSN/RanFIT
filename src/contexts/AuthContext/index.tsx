@@ -8,8 +8,8 @@ import type {
   IUser
 } from './AuthContext.types'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { getGoogleProfile } from '~/core/services/googleService'
 import { createUserIfNotExists, getUserById } from './AuthContext.helpers'
+import { getGoogleProfile } from '~/core/services/users/googleService'
 
 export const USER_KEY = '@ranfit_user'
 

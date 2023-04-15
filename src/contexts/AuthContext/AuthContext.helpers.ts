@@ -1,7 +1,7 @@
 import { IUser } from './AuthContext.types'
 import { FIREBASE_DB } from '~/core/firebase/config'
 import { doc, getDoc, setDoc } from '@firebase/firestore'
-import { ProviderUser } from '~/core/services/googleService'
+import { ProviderUser } from '~/core/services/users/googleService'
 
 export const getUserById = (userId: string) => {
   return getDoc(doc(FIREBASE_DB, 'users', userId))

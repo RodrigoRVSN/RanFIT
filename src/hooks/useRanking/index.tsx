@@ -1,7 +1,6 @@
-import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { IUser } from '~/contexts/AuthContext/AuthContext.types'
-import { FIREBASE_DB } from '~/core/firebase/config'
+import { getRanking } from '~/core/services/ranking/rankingService'
 
 export const useRanking = (userId?: string) => {
   const [usersRanking, setUsersRanking] = useState<IUser[]>([])
@@ -13,11 +12,9 @@ export const useRanking = (userId?: string) => {
   }, [userId, usersRanking])
 
   const handleGetRanking = useCallback(async () => {
-    const usersRef = collection(FIREBASE_DB, 'users')
-    const queryPoints = query(usersRef, orderBy('points', 'desc'))
-    const users = await getDocs(queryPoints)
+    const users = await getRanking()
 
-    setUsersRanking(users.docs.map((doc) => doc.data() as IUser))
+    setUsersRanking(users)
     setIsLoadingRanking(false)
   }, [])
 
