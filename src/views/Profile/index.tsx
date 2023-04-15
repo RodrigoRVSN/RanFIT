@@ -5,10 +5,11 @@ import { Avatar } from '~/components/Avatar'
 import { DataCard } from './DataCard'
 import { SignOutButton } from './SignOutButton'
 import { useRanking } from '~/hooks/useRanking'
+import { LevelProgress } from './LevelProgress'
 
 export const Profile = () => {
   const { userData } = useAuth()
-  const { userRankingPosition } = useRanking(userData.id)
+  const { userRankingPosition, isLoadingRanking } = useRanking(userData.id)
 
   return (
     <Background>
@@ -21,10 +22,15 @@ export const Profile = () => {
 
       <S.Username>{userData.name}</S.Username>
 
+      <LevelProgress />
+
       <S.CardsContainer>
         <DataCard title={userData.points} description="pontos" />
         <DataCard title={userData.time} description="minutos" />
-        <DataCard title={`#${userRankingPosition}`} description="no ranking" />
+        <DataCard
+          title={`#${isLoadingRanking ? '...' : userRankingPosition}`}
+          description="no ranking"
+        />
       </S.CardsContainer>
     </Background>
   )

@@ -1,5 +1,10 @@
 import styled from 'styled-components/native'
 import { Button as CustomButton } from '~/components/Button'
+import AppScanQrCode from '~/core/assets/images/scan-qr-code.svg'
+
+export const ScanQrCode = styled(AppScanQrCode)`
+  align-self: center;
+`
 
 export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.text};

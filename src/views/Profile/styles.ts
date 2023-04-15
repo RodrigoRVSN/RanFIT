@@ -18,7 +18,7 @@ export const Level = styled.Text`
 export const Username = styled.Text`
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fontFamily.title};
-  margin: ${({ theme }) => theme.spacing.medium} 0;
+  margin: ${({ theme }) => theme.spacing.medium} 0 0;
   font-size: 20px;
   line-height: 24px;
   text-align: center;

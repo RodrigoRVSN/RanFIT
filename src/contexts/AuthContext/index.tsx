@@ -8,8 +8,8 @@ import type {
   IUser
 } from './AuthContext.types'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { getGoogleProfile } from '~/core/services/googleService'
 import { createUserIfNotExists, getUserById } from './AuthContext.helpers'
+import { getGoogleProfile } from '~/core/services/users/googleService'
 
 export const USER_KEY = '@ranfit_user'
 
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [token, setToken] = useState('')
   const [userData, setUserData] = useState<IUser>()
 
-  const [, response, onGoogleSignIn] = useAuthRequest({
+  const [request, response, onGoogleSignIn] = useAuthRequest({
     expoClientId: EXPO_CLIENT_ID,
     clientId: G_CLIENT_ID,
     scopes: ['openid', 'profile', 'email']
@@ -61,7 +61,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       setIsLoadingStorage(true)
       const user = await AsyncStorage.getItem(USER_KEY)
+      if (!user) return
+
       const parsedUser: IUser = JSON.parse(user)
+
       const userInDatabase = await getUserById(parsedUser.id)
       user && setUserData(userInDatabase.data() as IUser)
     } catch (error) {
