@@ -8,4 +8,5 @@ export const Title = styled.Text`
   font-size: 32px;
   line-height: 38px;
   margin-bottom: ${({ theme }) => theme.spacing.xxlarge};
+  text-align: center;
 `

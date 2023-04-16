@@ -6,32 +6,38 @@ import { DataCard } from './DataCard'
 import { SignOutButton } from './SignOutButton'
 import { useRanking } from '~/hooks/useRanking'
 import { LevelProgress } from './LevelProgress'
+import { PointsChart } from './PointsChart'
+import { ScrollView } from 'react-native'
 
 export const Profile = () => {
   const { userData } = useAuth()
   const { userRankingPosition, isLoadingRanking } = useRanking(userData.id)
 
   return (
-    <Background>
-      <SignOutButton />
+    <ScrollView>
+      <Background>
+        <SignOutButton />
 
-      <S.ImageProfile>
-        <Avatar size={140} imageUrl={userData.avatarUrl} isHighlighted />
-        <S.Level>lvl. {userData.level}</S.Level>
-      </S.ImageProfile>
+        <S.ImageProfile>
+          <Avatar size={140} imageUrl={userData.avatarUrl} isHighlighted />
+          <S.Level>lvl. {userData.level}</S.Level>
+        </S.ImageProfile>
 
-      <S.Username>{userData.name}</S.Username>
+        <S.Username>{userData.name}</S.Username>
 
-      <LevelProgress />
+        <LevelProgress />
 
-      <S.CardsContainer>
-        <DataCard title={userData.points} description="pontos" />
-        <DataCard title={userData.time} description="minutos" />
-        <DataCard
-          title={`#${isLoadingRanking ? '...' : userRankingPosition}`}
-          description="no ranking"
-        />
-      </S.CardsContainer>
-    </Background>
+        <S.CardsContainer>
+          <DataCard title={userData.points} description="pontos" />
+          <DataCard title={userData.time} description="minutos" />
+          <DataCard
+            title={`#${isLoadingRanking ? '...' : userRankingPosition}`}
+            description="no ranking"
+          />
+        </S.CardsContainer>
+
+        <PointsChart />
+      </Background>
+    </ScrollView>
   )
 }
