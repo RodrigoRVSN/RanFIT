@@ -2,14 +2,22 @@ import React from 'react'
 import { Background } from '~/components/Background'
 
 import * as S from './styles'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { Button } from '~/components/Button'
+import { connectDevice } from '~/core/services/users/connectDevice'
+
+type RouteParams = {
+  deviceUrl: string
+}
 
 export const ScreenSaver = () => {
   const { replace } = useNavigation<any>()
 
-  const handleExit = () => {
-    // TODO: implement here the device disconnect
+  const route = useRoute()
+  const { deviceUrl } = route.params as RouteParams
+
+  const handleExit = async () => {
+    await connectDevice(deviceUrl, '')
     replace('HomeTab')
   }
 

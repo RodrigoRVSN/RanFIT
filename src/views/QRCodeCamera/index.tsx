@@ -4,16 +4,18 @@ import { Background } from '~/components/Background'
 
 import * as S from './styles'
 import { useNavigation } from '@react-navigation/native'
+import { connectDevice } from '~/core/services/users/connectDevice'
+import { useAuth } from '~/contexts/AuthContext'
 
 export const QRCodeCamera = () => {
+  const { userData } = useAuth()
   const [isScanned, setIsScanned] = useState(false)
   const { replace } = useNavigation<any>()
 
-  const handleBarCodeScanned = ({ data }) => {
+  const handleBarCodeScanned = async ({ data }) => {
     setIsScanned(true)
-    // TODO: use the data returned to send a post request passing the user id to connnect the deivce
-    console.log(data)
-    replace('ScreenSaver')
+    await connectDevice(data, userData.id)
+    replace('ScreenSaver', { deviceUrl: data })
   }
 
   useEffect(() => {

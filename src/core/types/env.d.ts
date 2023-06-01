@@ -9,4 +9,6 @@ declare module '@env' {
 
   export const EXPO_CLIENT_ID: string
   export const G_CLIENT_ID: string
+
+  export const API_URL: string
 }
