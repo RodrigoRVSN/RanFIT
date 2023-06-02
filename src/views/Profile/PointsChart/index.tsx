@@ -2,24 +2,19 @@ import { Dimensions } from 'react-native'
 import { theme } from '~/core/styles/theme'
 import * as S from './styles'
 import { LineChart } from 'react-native-chart-kit'
+import { useDashboard } from '~/hooks/useDashboard'
 
 export const PointsChart = () => {
+  const { dashboardData } = useDashboard()
+
   return (
     <S.ChartContainer>
       <LineChart
         data={{
-          labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+          labels: dashboardData.dates,
           datasets: [
             {
-              data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100
-              ]
+              data: dashboardData.points
             }
           ]
         }}
