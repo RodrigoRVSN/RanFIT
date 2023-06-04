@@ -15,9 +15,10 @@ export const getDashboard = async (
   const exercisesRef = doc(FIREBASE_DB, 'exercises', userId)
   const users = await getDoc(exercisesRef)
   const { data } = users.data()
+  const lastSevenDays = data.slice(-7)
 
-  const dates = data.map((item: DataType) => item.date)
-  const points = data.map((item: DataType) => item.points)
+  const dates = lastSevenDays.map((item: DataType) => item.date)
+  const points = lastSevenDays.map((item: DataType) => item.points)
 
   return { dates, points }
 }

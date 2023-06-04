@@ -7,8 +7,6 @@ import { useDashboard } from '~/hooks/useDashboard'
 export const PointsChart = () => {
   const { isLoading, dashboardData } = useDashboard()
 
-  // TODO: slice dashboard data to show only the last 7 days
-
   const graphWidth = Dimensions.get('window').width - 32
 
   return (
@@ -26,7 +24,8 @@ export const PointsChart = () => {
             ]
           }}
           width={graphWidth}
-          height={220}
+          height={420}
+          verticalLabelRotation={90}
           chartConfig={{
             backgroundColor: theme.colors.primary,
             backgroundGradientFrom: theme.colors.background,
