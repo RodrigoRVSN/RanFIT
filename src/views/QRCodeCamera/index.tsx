@@ -8,8 +8,9 @@ import { connectDevice } from '~/core/services/users/connectDevice'
 import { useAuth } from '~/contexts/AuthContext'
 
 export const QRCodeCamera = () => {
-  const { userData } = useAuth()
   const [isScanned, setIsScanned] = useState(false)
+
+  const { userData } = useAuth()
   const { replace } = useNavigation<any>()
 
   const handleBarCodeScanned = async ({ data }) => {

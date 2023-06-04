@@ -14,8 +14,8 @@ export const Profile = () => {
   const { userRankingPosition, isLoadingRanking } = useRanking(userData.id)
 
   return (
-    <ScrollView>
-      <Background>
+    <Background>
+      <ScrollView>
         <SignOutButton />
 
         <S.ImageProfile>
@@ -37,7 +37,7 @@ export const Profile = () => {
         </S.CardsContainer>
 
         <PointsChart />
-      </Background>
-    </ScrollView>
+      </ScrollView>
+    </Background>
   )
 }

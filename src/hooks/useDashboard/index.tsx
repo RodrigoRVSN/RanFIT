@@ -8,22 +8,24 @@ type DashboardDataType = {
 }
 
 export const useDashboard = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const [dashboardData, setDashboardData] = useState<DashboardDataType>({
     dates: [],
     points: []
   })
-  const [isLoadingRanking, setIsLoadingRanking] = useState(true)
+
   const { userData } = useAuth()
 
   const handleGetDashboard = useCallback(async () => {
     const { dates, points } = await getDashboard(userData.id)
+
     setDashboardData({ dates, points })
-    setIsLoadingRanking(false)
+    setIsLoading(false)
   }, [])
 
   useEffect(() => {
     handleGetDashboard()
   }, [])
 
-  return { isLoadingRanking, dashboardData }
+  return { isLoading, dashboardData }
 }
