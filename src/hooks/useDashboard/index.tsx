@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useFocusEffect } from '@react-navigation/native'
+import { useCallback, useState } from 'react'
 import { useAuth } from '~/contexts/AuthContext'
 import { getDashboard } from '~/core/services/users/getDashboard'
 
@@ -23,9 +24,11 @@ export const useDashboard = () => {
     setIsLoading(false)
   }, [])
 
-  useEffect(() => {
-    handleGetDashboard()
-  }, [])
+  useFocusEffect(
+    useCallback(() => {
+      handleGetDashboard()
+    }, [])
+  )
 
   return { isLoading, dashboardData }
 }

@@ -8,10 +8,18 @@ import { useRanking } from '~/hooks/useRanking'
 import { LevelProgress } from './LevelProgress'
 import { PointsChart } from './PointsChart'
 import { ScrollView } from 'react-native'
+import { useFocusEffect } from '@react-navigation/native'
+import { useCallback } from 'react'
 
 export const Profile = () => {
-  const { userData } = useAuth()
+  const { userData, updateUser } = useAuth()
   const { userRankingPosition, isLoadingRanking } = useRanking(userData.id)
+
+  useFocusEffect(
+    useCallback(() => {
+      updateUser()
+    }, [])
+  )
 
   return (
     <Background>

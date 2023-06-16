@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useFocusEffect } from '@react-navigation/native'
+import { useCallback, useMemo, useState } from 'react'
 import { IUser } from '~/contexts/AuthContext/AuthContext.types'
 import { getRanking } from '~/core/services/ranking/rankingService'
 
@@ -18,9 +19,11 @@ export const useRanking = (userId?: string) => {
     setIsLoadingRanking(false)
   }, [])
 
-  useEffect(() => {
-    handleGetRanking()
-  }, [])
+  useFocusEffect(
+    useCallback(() => {
+      handleGetRanking()
+    }, [])
+  )
 
   return { isLoadingRanking, usersRanking, userRankingPosition }
 }

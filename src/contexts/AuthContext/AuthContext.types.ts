@@ -17,6 +17,7 @@ export type AuthContextProps = {
   isLoading: boolean
   isLoadingStorage: boolean
   onSignOut: () => void
+  updateUser: () => Promise<void>
 }
 
 export type AuthProviderProps = {

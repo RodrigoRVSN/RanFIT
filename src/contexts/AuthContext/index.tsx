@@ -60,6 +60,16 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const getUserFromStorage = async () => {
     try {
       setIsLoadingStorage(true)
+      await getUpdatedUser()
+    } catch (error) {
+      console.log({ error })
+    } finally {
+      setIsLoadingStorage(false)
+    }
+  }
+
+  const getUpdatedUser = async () => {
+    try {
       const user = await AsyncStorage.getItem(USER_KEY)
       if (!user) return
 
@@ -69,8 +79,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       user && setUserData(userInDatabase.data() as IUser)
     } catch (error) {
       console.log({ error })
-    } finally {
-      setIsLoadingStorage(false)
     }
   }
 
@@ -87,7 +95,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         isLoadingStorage,
         userData,
         onGoogleSignIn,
-        onSignOut
+        onSignOut,
+        updateUser: getUpdatedUser
       }}
     >
       {children}
