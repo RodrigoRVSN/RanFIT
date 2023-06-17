@@ -19,7 +19,7 @@ export const RankingCard = ({ user, position }: RankingCardProps) => {
 
       <S.DetailsContainer>
         <S.Details>{user.points} pontos</S.Details>
-        <S.Details>{user.time} min</S.Details>
+        <S.Details>{user.power} watts</S.Details>
       </S.DetailsContainer>
     </S.Container>
   )

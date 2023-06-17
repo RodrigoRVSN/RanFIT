@@ -37,7 +37,7 @@ export const Profile = () => {
 
         <S.CardsContainer>
           <DataCard title={userData.points} description="pontos" />
-          <DataCard title={userData.time} description="minutos" />
+          <DataCard title={userData.power} description="watts" />
           <DataCard
             title={`#${isLoadingRanking ? '...' : userRankingPosition}`}
             description="no ranking"

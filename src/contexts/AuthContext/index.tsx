@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [token, setToken] = useState('')
   const [userData, setUserData] = useState<IUser>()
 
-  const [request, response, onGoogleSignIn] = useAuthRequest({
+  const [_, response, onGoogleSignIn] = useAuthRequest({
     expoClientId: EXPO_CLIENT_ID,
     clientId: G_CLIENT_ID,
     scopes: ['openid', 'profile', 'email']
