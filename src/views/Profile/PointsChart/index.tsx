@@ -24,8 +24,7 @@ export const PointsChart = () => {
             ]
           }}
           width={graphWidth}
-          height={420}
-          verticalLabelRotation={90}
+          height={350}
           chartConfig={{
             backgroundColor: theme.colors.primary,
             backgroundGradientFrom: theme.colors.background,
