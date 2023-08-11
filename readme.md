@@ -10,7 +10,10 @@
 
 ___
 
-> The mobile application to track exercises and gamified progress.
+> The mobile application to track exercises and gamified progress. [Figma](https://www.figma.com/file/5nKXpQIWHOrEcN5XxYZta6/UPX---RanFIT?type=design&node-id=73-90&mode=design&t=JqwLShYlyIjejTOr-0).
+
+![image](https://github.com/RodrigoRVSN/RanFIT/assets/75763403/2d5a4ed7-b609-42eb-9a1a-e2326fb1ad4c)
+
 
 ___
 
