@@ -31,6 +31,10 @@ ___
 - Styled Components
 - Firebase
 - Expo QR Code
+- Lottie
+- React Native Chart Kit
+- Expo Auth Session
+- Expo Updates
 
 <!--- #################### mudar ferramentas #################### --->
 ___
@@ -40,20 +44,20 @@ To use, follow the steps:
 
 1. Fill the `.env` with the `.env.example` info.
 
-2. Build the server and database images to run the application of `docker-compose.yaml`
+2. Run the app
 
 ```bash
-docker compose up
+yarn start
 ```
 
 ## 📫 Contribuiting with ranfit
 
-To contribue with ranfit, follow the steps:
+To contribute to ranfit, follow the steps:
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <name_branch>`.
 3. Make the changes and confirm: `git commit -m '<message_commit>'`
-4. Send to original repository: `git push origin <main_branch> / <local>`
+4. Send to the original repository: `git push origin <main_branch> / <local>`
 5. Send the pull request.
 
 Alternatively, see the GitHub documentation at [how to create a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
